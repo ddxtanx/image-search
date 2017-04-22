@@ -47,7 +47,7 @@ app.get('/api/imagesearch/*', function(req,res){
     var url = req.url.split("/api/imagesearch/")[1];
     var term = url.split("?offset=")[0];
     var offset = url.split("?offset=")[1];
-    mongo.connect('mongodb://localhost:27017/searches', function(err, db){
+    mongo.connect('mongodb://admin:password@ds027479.mlab.com:27479/searches', function(err, db){
         if(err) throw err;
         var latest = db.collection('latest');
         var now = new Date(Date.now());
@@ -63,7 +63,7 @@ app.get('/api/imagesearch/*', function(req,res){
     getImage(term, offset, res);
 });
 app.get('/api/latest/imagesearch/', function(req, res){
-    mongo.connect('mongodb://localhost:27017/searches', function(err, db){
+    mongo.connect('mongodb://admin:password@ds027479.mlab.com:27479/searches', function(err, db){
         if(err) throw err;
         var latest = db.collection('latest');
         latest.find({}, {
