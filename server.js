@@ -44,6 +44,7 @@ function getImage(text, offset, res){
 }
 
 app.get('/api/imagesearch/*', function(req,res){
+    console.log("handling image");
     var url = req.url.split("/api/imagesearch/")[1];
     var term = url.split("?offset=")[0];
     var offset = url.split("?offset=")[1];
